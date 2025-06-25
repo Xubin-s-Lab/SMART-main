@@ -1,8 +1,9 @@
 # SMART: spatial multiomics aggregation with graphical metric learning
 This repository contains SMART model and jupyter notebooks essential for reproducing the benchmarking outcomes shown in the paper.
-![image](https://github.com/user-attachments/assets/01cf7c5c-6ab7-4828-a873-fef2d72ebc3a)
+![Figure1](https://github.com/user-attachments/assets/7e58d0e5-7491-4fc2-9114-c21586eec3cf)
 
-## Overview
+## Overview!
+
 Spatial multi-omics provide a comprehensive aspect to decipher the microenvironment and heterogeneity in different spatial domain within tissues. To uniformly analyze the spatial multi-omics data, computational methods are desired to integrate and represent multiple omics with spatial information in uniform space. Here, we present SMART, a deep learning model based on graphical neural network aggregation and metric learning. SMART leverages a modality-independent modular and stacking framework with spatial coordinates and adjusts the aggregation using the constructed triplet relationship. SMART excels in accurately identifying spatial regions of anatomical structures or cell types, compatible with spatial datasets of any type and number of omics layers, while demonstrating exceptional computational efficiency and scalability on large datasets. Additionally, the variant of SMART, SMART-MS, expands its functionality to integrate multi-omics spatial data across multiple tissue sections. 
 
 ## Requirements
