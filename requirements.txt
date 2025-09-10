@@ -1,0 +1,12 @@
+muon==0.1.6 
+scanpy==1.10.2 
+scikit-learn==1.5.1 
+anndata==0.10.8 
+matplotlib==3.9.2 
+tqdm==4.66.5 
+numba==0.60.0 
+rpy2==3.5.12 
+torch==2.4.1 
+torch_geometric==2.3.0
+harmony-pytorch==0.1.8
+scikit-misc==0.3.1
