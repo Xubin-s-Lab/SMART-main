@@ -29,11 +29,11 @@ class SMART(torch.nn.Module):
         out_dim = hidden_dims[-1]
 
         # One encoder per modality
-        self.encoders = [Conv_Encoder(in_dim, out_dim).to(device) for in_dim in hidden_dims[:-1]]
+        self.encoders = nn.ModuleList([Conv_Encoder(in_dim, out_dim).to(device) for in_dim in hidden_dims[:-1]])
         self.fc = nn.Linear((len(hidden_dims) - 1) * out_dim, out_dim)
 
         # One decoder per modality
-        self.decoders = [Conv_Decoder(out_dim, in_dim).to(device) for in_dim in hidden_dims[:-1]]
+        self.decoders = nn.ModuleList([Conv_Decoder(out_dim, in_dim).to(device) for in_dim in hidden_dims[:-1]])
 
     def forward(self, features, edge_indexs):
         """
