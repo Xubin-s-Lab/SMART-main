@@ -100,16 +100,22 @@ in the terminal.
 
 The step-by-step guides for closely replicating the SMART results on **Simulated multi-omics data, 10x human lymph node data, MISAR-seq mouse brain data, P22 mouse brain section data and 10x human tonsil multi slice data** are accessible at: [Tutorials](https://github.com/ws6tg/SMART-main/tree/main/tutorials) and [SMART Tutorials on Read the Docs](https://smart-tutorials.readthedocs.io/). Furthermore, all the processed data required to reproduce the figures presented in the manuscript can be found at Zenodo under the DOI: https://doi.org/10.5281/zenodo.17093158.
 
-## 4. Raw datasets
+## 4. Version notes
+
+- **v0.1.2** ([GitHub release](https://github.com/Xubin-s-Lab/SMART-main/releases/tag/0.1.2), also on PyPI as `bio-SMART==0.1.2`): the version used to generate all five tutorials above. In this version, `SMART.encoders` and `SMART.decoders` are stored in plain Python lists, so their parameters are not registered with the optimizer: during training, only the fusion layer (`fc`) is updated, while the graph encoder/decoder weights keep their initial values. To exactly reproduce the recorded tutorial outputs, please use v0.1.2.
+
+- **v0.1.3** ([GitHub release](https://github.com/Xubin-s-Lab/SMART-main/releases/tag/0.1.3), current): `SMART.encoders` and `SMART.decoders` are now wrapped in `torch.nn.ModuleList`, so all encoder/decoder parameters are registered and trained. Because the set of trainable parameters changed, training dynamics differ from v0.1.2: with identical hyperparameters and random seeds, v0.1.3 produces different results from the tutorials' recorded outputs, and per-dataset learning-rate / early-stopping settings may benefit from recalibration. The current `main` branch additionally includes a compatibility improvement for the mclust (rpy2) call.
+
+## 5. Raw datasets
 
 The 10X Visium Human Lymph Node data can be accessed from the Gene Expression Omnibus (GEO) with accession code GSE263617 (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE263617). The MISAR-seq mouse brain data can be accessed from National Genomics Data Center with accession number OEP003285 (https://www.biosino.org/node/project/detail/OEP003285). The Stereo-CITE-seq data can be accessed from BGI STOmics Cloud (https://cloud.stomics.tech/). The spatial CUT&Tag–RNA-seq and spatial ATAC–RNA-seq mouse brain data can be accessed at GEO with accession code GSE205055 (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE205055) or UCSC Cell and Genome Browser (https://brain-spatial-omics.cells.ucsc.edu). The STARmap and RIBOmap mouse brain data can be accessed from Zenodo (https://zenodo.org/record/8041114) or Single Cell Portal (SCP) (https://singlecell.broadinstitute.org/single_cell/study/SCP1835). The SPOTS mouse spleen data can be accessed at GEO with accession code GSE198353 (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE198353). The 10X Visium Human Tonsil data can be accessed from https://zenodo.org/records/12654113/preview/data_imputation.zip?include_deleted=0#tree_item0.
 
-## 5. Reproducibility
+## 6. Reproducibility
 
 To reproduce the results of SMART and the compared methods, please use the code provided in the **SMART-reproduce** branch and the **benchmarks** folder in the main branch.  
 
 
-## 6. Contact information
+## 7. Contact information
 
 Please contact us if you have any questions:
 
@@ -117,6 +123,6 @@ Please contact us if you have any questions:
 - Weiliang Huang (wlhuang32@gmail.com);
 - Xubin Zheng (xbzheng@gbu.edu.cn).
 
-## 7. Copyright information
+## 8. Copyright information
 
 Please see the "LICENSE" file for the copyright information.
